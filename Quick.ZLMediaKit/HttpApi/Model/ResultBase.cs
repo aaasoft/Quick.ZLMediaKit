@@ -18,16 +18,6 @@ namespace Quick.ZLMediaKit.HttpApi.Model
         public string Msg { get; set; }
 
         public int Result { get; set; }
-
-        /// <summary>
-        /// 是否在线
-        /// </summary>
-        public bool IsOnline { get; set; }
-
-        /// <summary>
-        /// false:未录制,true:正在录制
-        /// </summary>
-        public bool Status { get; set; }
     }
 
     public class ResultBase<T> :ResultBase  where T: new ()

@@ -28,7 +28,7 @@ namespace Quick.ZLMediaKit.WebHook.Model
         /// <summary>
         /// 播放器端口号
         /// </summary>
-        public ushort Port { get; set; }
+        public int Port { get; set; }
 
         /// <summary>
         /// 播放的协议，可能是rtsp、rtmp、http
@@ -49,6 +49,6 @@ namespace Quick.ZLMediaKit.WebHook.Model
 
     public class PlayInfoResult : ResultBase
     {
-        public new int Code { get; set; } = 0;
+        
     }
 }

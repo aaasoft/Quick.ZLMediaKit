@@ -25,7 +25,7 @@ namespace Quick.ZLMediaKit.WebHook.Model
         /// <summary>
         /// rtsp播放器端口号
         /// </summary>
-        public ushort Port { get; set; }
+        public int Port { get; set; }
         /// <summary>
         /// rtsp或rtsps
         /// </summary>

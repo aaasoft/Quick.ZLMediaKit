@@ -29,7 +29,7 @@ namespace Quick.ZLMediaKit.WebHook.Model
         /// <summary>
         /// 推流器端口号
         /// </summary>
-        public ushort Port { get; set; }
+        public int Port { get; set; }
 
         /// <summary>
         /// 推流的协议，可能是rtsp、rtmp、rtp
@@ -58,12 +58,6 @@ namespace Quick.ZLMediaKit.WebHook.Model
             this.EnableMP4 = false;
             this.EnableRtxp = false;
         }
-
-        /// <summary>
-        /// 错误代码，0代表允许推流
-        /// </summary>
-        /// <value>Default Value : 0</value>
-        public new int Code { get; set; } = 0;
 
         /// <summary>
         /// 是否转换成hls协议

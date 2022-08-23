@@ -21,7 +21,7 @@ namespace Quick.ZLMediaKit.WebHook.Model
         /// <summary>
         /// telnet 终端端口号
         /// </summary>
-        public ushort Port { get; set; }
+        public int Port { get; set; }
         /// <summary>
         /// telnet 终端登录用户名
         /// </summary>
@@ -32,9 +32,8 @@ namespace Quick.ZLMediaKit.WebHook.Model
     {
         public ShellLonginResult()
         {
+            this.Code = -1;
             this.Msg = "禁止访问";
         }
-        public new int Code { get; set; } = -1;
-
     }
 }

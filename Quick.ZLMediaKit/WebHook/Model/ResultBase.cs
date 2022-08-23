@@ -7,7 +7,7 @@ namespace Quick.ZLMediaKit.WebHook.Model
     public class ResultBase
     {
 
-        public virtual int Code => 0;
+        public int Code { get; set; } = 0;
 
         public string Msg { get; set; } = "success";
     }

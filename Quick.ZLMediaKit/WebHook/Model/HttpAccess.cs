@@ -30,7 +30,7 @@ namespace Quick.ZLMediaKit.WebHook.Model
         /// <summary>
         /// http客户端端口号
         /// </summary>
-        public ushort Port { get; set; }
+        public int Port { get; set; }
 
         /// <summary>
         /// 请求访问的文件或目录

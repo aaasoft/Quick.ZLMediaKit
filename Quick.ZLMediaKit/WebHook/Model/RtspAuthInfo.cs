@@ -29,7 +29,7 @@ namespace Quick.ZLMediaKit.WebHook.Model
         /// <summary>
         /// rtsp播放器端口号
         /// </summary>
-        public ushort Port { get; set; }
+        public int Port { get; set; }
         /// <summary>
         /// rtsp播放鉴权加密realm
         /// </summary>
@@ -55,10 +55,6 @@ namespace Quick.ZLMediaKit.WebHook.Model
 
     public class RtspAuthResult : ResultBase
     {
-        /// <summary>
-        /// 错误代码，0代表允许播放
-        /// </summary>
-        public new int Code { get; set; }
         /// <summary>
         /// 用户密码是否已加密
         /// </summary>
