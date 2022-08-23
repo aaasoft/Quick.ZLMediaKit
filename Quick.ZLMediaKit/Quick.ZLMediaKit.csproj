@@ -6,6 +6,7 @@
     <Title>基于.net的ZLMediaKit Http Api 客户端</Title>
     <PackageProjectUrl>https://github.com/aaasoft/Quick.ZLMediaKit</PackageProjectUrl>
     <RepositoryUrl>https://github.com/aaasoft/Quick.ZLMediaKit</RepositoryUrl>
+    <Authors>aaasoft</Authors>
   </PropertyGroup>
 
 	<ItemGroup>
