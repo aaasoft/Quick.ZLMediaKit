@@ -54,7 +54,7 @@ namespace Quick.ZLMediaKit.HttpApi.Model
         /// <summary>
         /// 
         /// </summary>
-        public RTCConfig Rtc { get; set; }
+        public RtcConfig Rtc { get; set; }
         /// <summary>
         /// 
         /// </summary>
@@ -734,7 +734,7 @@ namespace Quick.ZLMediaKit.HttpApi.Model
             }
         }
 
-        public class RTCConfig
+        public class RtcConfig
         {
             internal static string PrefixName = "rtc.";
             /// <summary>
@@ -750,7 +750,7 @@ namespace Quick.ZLMediaKit.HttpApi.Model
             /// </summary>
             public long RembBitRate { get; set; }
 
-            internal Dictionary<string, object> GetUpdateDicts(RTCConfig rtcConfig)
+            internal Dictionary<string, object> GetUpdateDicts(RtcConfig rtcConfig)
             {
                 var dict = new Dictionary<string, object>();
                 if (!object.Equals(TimeoutSec, rtcConfig.TimeoutSec)) dict.Add($"{PrefixName}timeoutSec", TimeoutSec);

@@ -76,6 +76,7 @@ namespace Quick.ZLMediaKit.HttpApi
                             Record = GetModel<ServerConfig.RecordConfig>(config, ServerConfig.RecordConfig.PrefixName),
                             Rtmp = GetModel<ServerConfig.RtmpConfig>(config, ServerConfig.RtmpConfig.PrefixName),
                             Rtp = GetModel<ServerConfig.RtpConfig>(config, ServerConfig.RtpConfig.PrefixName),
+                            Rtc = GetModel<ServerConfig.RtcConfig>(config, ServerConfig.RtcConfig.PrefixName),
                             RtpProxy = GetModel<ServerConfig.RtpProxyConfig>(config, ServerConfig.RtpProxyConfig.PrefixName),
                             Rtsp = GetModel<ServerConfig.RtspConfig>(config, ServerConfig.RtspConfig.PrefixName),
                             Shell = GetModel<ServerConfig.ShellConfig>(config, ServerConfig.ShellConfig.PrefixName)
