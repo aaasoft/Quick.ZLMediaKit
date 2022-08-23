@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Net;
 using System.Text;
 
-namespace ZLMediaKit.WebHook.Model
+namespace Quick.ZLMediaKit.WebHook.Model
 {
     public class EventBase
     {

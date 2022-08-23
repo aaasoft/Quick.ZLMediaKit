@@ -7,6 +7,8 @@
     <PackageProjectUrl>https://github.com/aaasoft/Quick.ZLMediaKit</PackageProjectUrl>
     <RepositoryUrl>https://github.com/aaasoft/Quick.ZLMediaKit</RepositoryUrl>
     <Authors>aaasoft</Authors>
+    <PackageTags>ZLMediaKit</PackageTags>
+    <Version>1.0.1</Version>
   </PropertyGroup>
 
 	<ItemGroup>

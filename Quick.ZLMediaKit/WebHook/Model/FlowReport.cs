@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace ZLMediaKit.WebHook.Model
+namespace Quick.ZLMediaKit.WebHook.Model
 {
     /// <summary>
     /// 流量统计
