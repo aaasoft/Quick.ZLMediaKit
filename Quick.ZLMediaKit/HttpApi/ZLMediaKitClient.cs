@@ -239,11 +239,31 @@ namespace Quick.ZLMediaKit.HttpApi
         /// <param name="url">拉流地址，例如rtmp://live.hkstv.hk.lxdns.com/live/hks2</param>
         /// <param name="enable_hls">是否转hls</param>
         /// <param name="enable_mp4">是否mp4录制</param>
+        /// <param name="enable_rtsp">是否转rtsp协议</param>
+        /// <param name="enable_rtmp">是否转rtmp/flv协议</param>
+        /// <param name="enable_ts">是否转http-ts/ws-ts协议</param>
+        /// <param name="enable_fmp4">是否转http-fmp4/ws-fmp4协议</param>
+        /// <param name="enable_audio">转协议时是否开启音频</param>
         /// <param name="rtp_type">rtsp拉流时，拉流方式，0：tcp，1：udp，2：组播</param>
         /// <param name="timeout_sec">拉流超时时间，单位秒，float类型</param>
         /// <param name="retry_count">拉流重试次数,不传此参数或传值<=0时，则无限重试</param>
         /// <returns></returns>
-        public Task<ResultBase<StreamProxy>> AddStreamProxy(string vhost, string app, string stream, string url, bool enable_hls = false, bool enable_mp4 = false, int rtp_type = 0, float timeout_sec = 10, int retry_count = 0)
+        public Task<ResultBase<StreamProxy>> AddStreamProxy(
+            string vhost,
+            string app,
+            string stream,
+            string url,
+            bool enable_hls = false,
+            bool enable_mp4 = false,
+            bool enable_rtsp = false,
+            bool enable_rtmp = false,
+            bool enable_ts = false,
+            bool enable_fmp4 = false,
+            bool enable_audio = true,
+            int rtp_type = 0,
+            float timeout_sec = 10,
+            int retry_count = 0
+            )
         {
             return BaseRequest()
                 .AppendPathSegment("addStreamProxy")
@@ -253,6 +273,11 @@ namespace Quick.ZLMediaKit.HttpApi
                 .SetQueryParam("url", url)
                 .SetQueryParam("enable_hls", enable_hls ? 1 : 0)
                 .SetQueryParam("enable_mp4", enable_mp4 ? 1 : 0)
+                .SetQueryParam("enable_rtsp", enable_mp4 ? 1 : 0)
+                .SetQueryParam("enable_rtmp", enable_mp4 ? 1 : 0)
+                .SetQueryParam("enable_ts", enable_mp4 ? 1 : 0)
+                .SetQueryParam("enable_fmp4", enable_mp4 ? 1 : 0)
+                .SetQueryParam("enable_audio", enable_mp4 ? 1 : 0)
                 .SetQueryParam("rtp_type", rtp_type)
                 .SetQueryParam("timeout_sec", timeout_sec)
                 .SetQueryParam("retry_count", retry_count)
