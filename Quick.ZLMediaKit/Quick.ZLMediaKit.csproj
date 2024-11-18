@@ -8,11 +8,11 @@
 		<RepositoryUrl>https://github.com/aaasoft/Quick.ZLMediaKit</RepositoryUrl>
 		<Authors>aaasoft</Authors>
 		<PackageTags>ZLMediaKit</PackageTags>
-		<Version>1.0.5</Version>
+		<Version>1.1.0</Version>
 		<Description>基于.net的ZLMediaKit Http Api 客户端</Description>
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Flurl.Http" Version="3.2.4" />
+		<PackageReference Include="Flurl.Http" Version="4.0.2" />
 	</ItemGroup>
 </Project>

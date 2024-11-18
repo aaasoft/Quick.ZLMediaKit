@@ -1,8 +1,9 @@
-﻿using Newtonsoft.Json;
+﻿using Quick.ZLMediaKit.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
 
 namespace Quick.ZLMediaKit.HttpApi.Model
 {
@@ -98,7 +99,7 @@ namespace Quick.ZLMediaKit.HttpApi.Model
             /// <summary>
             /// 是否调试http api,启用调试后，会打印每次http请求的内容和回复
             /// </summary>
-            [JsonConverter(typeof(ZLBoolConverter))]
+            [JsonConverter(typeof(JsonNumberBoolConverter))]
             public bool ApiDebug { get; set; }
 
             /// <summary>
@@ -174,7 +175,7 @@ namespace Quick.ZLMediaKit.HttpApi.Model
             /// <summary>
             /// 是否启用虚拟主机
             /// </summary>
-            [JsonConverter(typeof(ZLBoolConverter))]
+            [JsonConverter(typeof(JsonNumberBoolConverter))]
             public bool EnableVhost { get; set; }
 
             /// <summary>
@@ -202,40 +203,40 @@ namespace Quick.ZLMediaKit.HttpApi.Model
             /// <summary>
             /// 拉流代理是否添加静音音频(直接拉流模式本协议无效)
             /// </summary>
-            [JsonConverter(typeof(ZLBoolConverter))]
+            [JsonConverter(typeof(JsonNumberBoolConverter))]
             public bool AddMuteAudio { get; set; }
 
             /// <summary>
             /// 拉流代理时如果断流再重连成功是否删除前一次的媒体流数据
             /// </summary>
             /// <remarks>如果删除将重新开始 ；如果不删除将会接着上一次的数据继续写(录制hls/mp4时会继续在前一个文件后面写)</remarks>
-            [JsonConverter(typeof(ZLBoolConverter))]
+            [JsonConverter(typeof(JsonNumberBoolConverter))]
             public bool ResetWhenRePlay { get; set; }
 
             /// <summary>
             /// 是否默认推流时转换成hls，hook接口(on_publish)中可以覆盖该设置
             /// </summary>
-            [JsonConverter(typeof(ZLBoolConverter))]
+            [JsonConverter(typeof(JsonNumberBoolConverter))]
             public bool PublishToHls { get; set; }
 
             /// <summary>
             /// 是否默认推流时mp4录像，hook接口(on_publish)中可以覆盖该设置
             /// </summary>
-            [JsonConverter(typeof(ZLBoolConverter))]
+            [JsonConverter(typeof(JsonNumberBoolConverter))]
             public bool PublishToMP4 { get; set; }
 
             /// <summary>
             /// 合并写缓存大小(单位毫秒)
             /// </summary>
             /// <remarks>合并写指服务器缓存一定的数据后才会一次性写入socket，这样能提高性能，但是会提高延时,开启后会同时关闭TCP_NODELAY并开启MSG_MORE</remarks>
-            [JsonConverter(typeof(ZLBoolConverter))]
+            [JsonConverter(typeof(JsonNumberBoolConverter))]
             public bool MergeWriteMS { get; set; }
 
             /// <summary>
             /// 全局的时间戳覆盖开关，在转协议时，对frame进行时间戳覆盖
             /// </summary>
             /// <remarks>该开关对rtsp/rtmp/rtp推流、rtsp/rtmp/hls拉流代理转协议时生效；会直接影响rtsp/rtmp/hls/mp4/flv等协议的时间戳；同协议情况下不影响(例如rtsp/rtmp推流，那么播放rtsp/rtmp时不会影响时间戳)</remarks>
-            [JsonConverter(typeof(ZLBoolConverter))]
+            [JsonConverter(typeof(JsonNumberBoolConverter))]
             public bool ModifyStamp { get; set; }
 
             /// <summary>
@@ -246,33 +247,33 @@ namespace Quick.ZLMediaKit.HttpApi.Model
             /// <summary>
             /// 转协议是否全局开启或关闭音频
             /// </summary>
-            [JsonConverter(typeof(ZLBoolConverter))]
+            [JsonConverter(typeof(JsonNumberBoolConverter))]
             public bool Enable_audio { get; set; }
 
             /// <summary>
             /// hls协议是否按需生成，如果hls.segNum配置为0(意味着hls录制)，那么hls将一直生成(不管此开关)
             /// </summary>
-            [JsonConverter(typeof(ZLBoolConverter))]
+            [JsonConverter(typeof(JsonNumberBoolConverter))]
             public bool Hls_demand { get; set; }
             /// <summary>
             /// rtsp[s]协议是否按需生成
             /// </summary>
-            [JsonConverter(typeof(ZLBoolConverter))]
+            [JsonConverter(typeof(JsonNumberBoolConverter))]
             public bool Rtsp_demand { get; set; }
             /// <summary>
             /// rtmp[s]、http[s]-flv、ws[s]-flv协议是否按需生成
             /// </summary>
-            [JsonConverter(typeof(ZLBoolConverter))]
+            [JsonConverter(typeof(JsonNumberBoolConverter))]
             public bool Rtmp_demand { get; set; }
             /// <summary>
             /// http[s]-ts协议是否按需生成
             /// </summary>
-            [JsonConverter(typeof(ZLBoolConverter))]
+            [JsonConverter(typeof(JsonNumberBoolConverter))]
             public bool Ts_demand { get; set; }
             /// <summary>
             /// http[s]-fmp4、ws[s]-fmp4协议是否按需生成
             /// </summary>
-            [JsonConverter(typeof(ZLBoolConverter))]
+            [JsonConverter(typeof(JsonNumberBoolConverter))]
             public bool Fmp4_demand { get; set; }
 
             internal Dictionary<string, object> GetUpdateDicts(GeneralConfig generalConfig)
@@ -336,7 +337,7 @@ namespace Quick.ZLMediaKit.HttpApi.Model
             /// <summary>
             /// 是否广播 ts 切片完成通知
             /// </summary>
-            [JsonConverter(typeof(ZLBoolConverter))]
+            [JsonConverter(typeof(JsonNumberBoolConverter))]
             public bool BroadcastRecordTs { get; set; }
             /// <summary>
             /// 直播hls文件删除延时，单位秒，issue: #913
@@ -372,7 +373,7 @@ namespace Quick.ZLMediaKit.HttpApi.Model
             /// <summary>
             /// 是否启用hook事件，启用后，推拉流都将进行鉴权
             /// </summary>
-            [JsonConverter(typeof(ZLBoolConverter))]
+            [JsonConverter(typeof(JsonNumberBoolConverter))]
             public bool Enable { get; set; }
 
             /// <summary>
@@ -524,7 +525,7 @@ namespace Quick.ZLMediaKit.HttpApi.Model
             /// <summary>
             /// 是否显示文件夹菜单，开启后可以浏览文件夹
             /// </summary>
-            [JsonConverter(typeof(ZLBoolConverter))]
+            [JsonConverter(typeof(JsonNumberBoolConverter))]
             public bool DirMenu { get; set; }
 
             internal Dictionary<string, object> GetUpdateDicts(HttpConfig httpConfig)
@@ -773,7 +774,7 @@ namespace Quick.ZLMediaKit.HttpApi.Model
             /// <summary>
             /// rtsp专有鉴权方式是采用base64还是md5方式
             /// </summary>
-            [JsonConverter(typeof(ZLBoolConverter))]
+            [JsonConverter(typeof(JsonNumberBoolConverter))]
             public bool AuthBasic { get; set; }
             /// <summary>
             /// rtsp拉流代理是否是直接代理模式
@@ -784,7 +785,7 @@ namespace Quick.ZLMediaKit.HttpApi.Model
             /// 假定您的拉流源地址不是264或265或AAC，那么你可以使用直接代理的方式来支持rtsp代理;
             /// 默认开启rtsp直接代理，rtmp由于没有这些问题，是强制开启直接代理的
             /// </remarks>
-            [JsonConverter(typeof(ZLBoolConverter))]
+            [JsonConverter(typeof(JsonNumberBoolConverter))]
             public bool DirectProxy { get; set; }
             /// <summary>
             /// rtsp必须在此时间内完成握手，否则服务器会断开链接，单位秒

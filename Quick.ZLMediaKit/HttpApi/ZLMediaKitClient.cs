@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using Flurl.Http;
 using Quick.ZLMediaKit.HttpApi.Model;
-using Newtonsoft.Json;
 using System.Linq;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 
 namespace Quick.ZLMediaKit.HttpApi
 {
@@ -85,12 +86,18 @@ namespace Quick.ZLMediaKit.HttpApi
                 });
         }
 
-
+        private JsonSerializerOptions WebJsonSerializerOptions = new JsonSerializerOptions() 
+        {
+            PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
+             NumberHandling = JsonNumberHandling.AllowReadingFromString
+        };
         private T GetModel<T>(Dictionary<string, object> dicts, string name) where T : new()
         {
             var objDict = dicts.Where(w => w.Key.StartsWith(name)).ToDictionary(f => f.Key.Replace(name, ""), v => v.Value);
-            return JsonConvert.DeserializeObject<T>(JsonConvert.SerializeObject(objDict));
+            var json = JsonSerializer.Serialize(objDict);
+            return JsonSerializer.Deserialize<T>(json, WebJsonSerializerOptions);
         }
+
         /// <summary>
         /// 动态修改ZLM配置
         /// </summary>
